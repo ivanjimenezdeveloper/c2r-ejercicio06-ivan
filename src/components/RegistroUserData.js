@@ -54,6 +54,7 @@ export const RegistroUserData = (props) => {
       >
         Atrás
       </button>
+      <div className="col-3"></div>
       <button type="submit" className="col-4 btn bg-primary text-light m-1">
         Siguiente
       </button>
