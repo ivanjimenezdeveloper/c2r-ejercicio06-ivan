@@ -12,14 +12,15 @@ export const Login = (props) => {
 
   debugger;
   return (
-    <>
+    <div className="row">
       <LoginForm
         funcionAtras={funcionAtras}
         loginFuncion={loginFuncion}
         usuario={usuario}
       />
+      <div className="col-3"></div>
       {datos && <LoginDatos usuario={usuario} />}
-    </>
+    </div>
   );
 };
 

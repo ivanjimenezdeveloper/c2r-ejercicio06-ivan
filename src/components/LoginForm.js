@@ -25,8 +25,9 @@ export const LoginForm = (props) => {
   };
 
   return (
-    <form
-      className="
+    <div className="col-4">
+      <form
+        className="
         bg-light
         cajaFormulario
         row
@@ -35,36 +36,37 @@ export const LoginForm = (props) => {
         align-items-center
         justify-content-center
       "
-      onSubmit={(e) => {
-        comprobarLogin(e);
-      }}
-    >
-      <h1 className="col-12 titulo text-center">Login</h1>
-      <label className="col-6">Usuario:</label>
-      <input
-        type="text"
-        className="col-6"
-        value={nombreUsuario}
-        onChange={(e) => setNombreUsuario(e.target.value)}
-      />
-      <label className="col-6">Password:</label>
-      <input
-        type="password"
-        className="col-6"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button
-        type="button"
-        className="col-4 btn bg-primary text-light m-1"
-        onClick={funcionAtras}
+        onSubmit={(e) => {
+          comprobarLogin(e);
+        }}
       >
-        Atrás
-      </button>
-      <div className="col-3"></div>
-      <button type="submit" className="col-4 btn bg-primary text-light m-1">
-        Log In
-      </button>
-    </form>
+        <h1 className="col-12 titulo text-center">Login</h1>
+        <label className="col-6">Usuario:</label>
+        <input
+          type="text"
+          className="col-6"
+          value={nombreUsuario}
+          onChange={(e) => setNombreUsuario(e.target.value)}
+        />
+        <label className="col-6">Password:</label>
+        <input
+          type="password"
+          className="col-6"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button
+          type="button"
+          className="col-4 btn bg-primary text-light m-1"
+          onClick={funcionAtras}
+        >
+          Atrás
+        </button>
+        <div className="col-3"></div>
+        <button type="submit" className="col-4 btn bg-primary text-light m-1">
+          Log In
+        </button>
+      </form>
+    </div>
   );
 };
