@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { RegistroPersonalData } from "./components/RegistroPersonalData";
+import { RegistroUserData } from "./components/RegistroUserData";
 
 function App() {
   const [usuario, setUsuario] = useState({
@@ -11,9 +12,11 @@ function App() {
     pass: "",
   });
 
+  const [indice, setIndice] = useState(1);
+
   const registroDatosPersonales = (e, objetoDatos) => {
     e.preventDefault();
-
+    setIndice(2);
     setUsuario({
       ...usuario,
       nombre: objetoDatos.nombre,
@@ -22,12 +25,30 @@ function App() {
       email: objetoDatos.email,
     });
   };
+
+  const registroUserData = (e, objetoDatos) => {
+    e.preventDefault();
+    setIndice(3);
+  };
+
+  const atras = () => {
+    setIndice(indice - 1);
+  };
+
   return (
     <div className="bg-primary vh-100 d-flex align-items-center justify-content-center containerCustom">
-      <RegistroPersonalData
-        usuario={usuario}
-        setUsuario={registroDatosPersonales}
-      />
+      {indice === 1 && (
+        <RegistroPersonalData setUsuario={registroDatosPersonales} />
+      )}
+
+      {indice === 2 && (
+        <RegistroUserData
+          registroUserData={registroUserData}
+          funcionAtras={atras}
+        />
+      )}
+
+      {indice === 3 && console.log("tamos en la parte final")}
     </div>
   );
 }

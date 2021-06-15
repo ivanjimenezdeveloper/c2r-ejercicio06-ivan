@@ -2,10 +2,6 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 
 export const RegistroPersonalData = (props) => {
-  // const {
-  //   usuario: { nombre, apellidos, fechaNacimiento, email },
-  //   setUsuario,
-  // } = props;
   const { setUsuario } = props;
 
   const [nombre, setNombre] = useState("");
@@ -33,7 +29,7 @@ export const RegistroPersonalData = (props) => {
       "
       onSubmit={(e) => setUsuario(e, objetoReturn)}
     >
-      <h1 className="col-12 titulo text-center">Registro</h1>
+      <h1 className="col-12 titulo text-center">Datos Personales</h1>
       <label className="col-6">Nombre:</label>
       <input
         type="text"
@@ -63,7 +59,7 @@ export const RegistroPersonalData = (props) => {
         onChange={(e) => setEmail(e.target.value)}
       />
       <button type="submit" className="col-12 btn bg-primary text-light">
-        Registrar
+        Siguiente
       </button>
     </form>
   );
