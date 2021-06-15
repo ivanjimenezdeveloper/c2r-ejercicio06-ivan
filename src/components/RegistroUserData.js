@@ -7,6 +7,17 @@ export const RegistroUserData = (props) => {
   const [password, setPassword] = useState("");
   const [passwordRepetida, setPasswordRepetida] = useState("");
 
+  const comprobarPassword = ({ password }, passwordRepetida) => {
+    return password === passwordRepetida ? true : false;
+  };
+  const returnUsuario = (e, objetoUsuario) => {
+    const continuar = comprobarPassword(objetoUsuario, passwordRepetida);
+
+    if (continuar) {
+      registroUserData(e, objetoReturn);
+    }
+  };
+
   const objetoReturn = {
     usuario,
     password,
@@ -23,7 +34,7 @@ export const RegistroUserData = (props) => {
         align-items-center
         justify-content-center
       "
-      onSubmit={(e) => registroUserData(e, objetoReturn)}
+      onSubmit={(e) => returnUsuario(e, objetoReturn)}
     >
       <h1 className="col-12 titulo text-center">Datos de usuario</h1>
       <label className="col-6">Usuario:</label>
@@ -35,14 +46,14 @@ export const RegistroUserData = (props) => {
       />
       <label className="col-6">Password:</label>
       <input
-        type="text"
+        type="password"
         className="col-6"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <label className="col-6">Repetir Password:</label>
       <input
-        type="date"
+        type="password"
         className="col-6"
         value={passwordRepetida}
         onChange={(e) => setPasswordRepetida(e.target.value)}

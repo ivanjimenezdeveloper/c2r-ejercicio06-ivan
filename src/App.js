@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { RegistroPersonalData } from "./components/RegistroPersonalData";
 import { RegistroUserData } from "./components/RegistroUserData";
+import { Login } from "./components/Login";
 
 function App() {
   const [usuario, setUsuario] = useState({
@@ -9,7 +10,7 @@ function App() {
     fechaNacimiento: "",
     email: "",
     usuario: "",
-    pass: "",
+    password: "",
   });
 
   const [indice, setIndice] = useState(1);
@@ -29,6 +30,11 @@ function App() {
   const registroUserData = (e, objetoDatos) => {
     e.preventDefault();
     setIndice(3);
+    setUsuario({
+      ...usuario,
+      usuario: objetoDatos.usuario,
+      password: objetoDatos.password,
+    });
   };
 
   const atras = () => {
@@ -48,7 +54,7 @@ function App() {
         />
       )}
 
-      {indice === 3 && console.log("tamos en la parte final")}
+      {indice === 3 && <Login funcionAtras={atras} usuario={usuario} />}
     </div>
   );
 }
